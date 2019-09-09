@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: dev
   connection: local
   become: false
   gather_facts: false
@@ -8,7 +8,6 @@
     - name: Capturing Terraform Command
       terraform:
         project_path: '../terraform/{{env}}'
-        state: "{{ state }}"
         force_init: true
 
         backend_config:
