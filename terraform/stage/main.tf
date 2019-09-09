@@ -1,3 +1,12 @@
+provider "aws" {
+  region = "eu-west-1"
+}
+
+data "aws_security_group" "default" {
+  name   = "default"
+  vpc_id = module.vpc.vpc_id
+}
+
 module "vpc" {
   source = "github.com/terraform-aws-modules/terraform-aws-vpc"
 
