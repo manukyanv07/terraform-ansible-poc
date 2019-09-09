@@ -9,6 +9,8 @@
       terraform:
         project_path: '../terraform/{{env}}'
         force_init: true
+        variables:
+          env:"{{env}}"
 
         backend_config:
           region: "eu-west-1"
