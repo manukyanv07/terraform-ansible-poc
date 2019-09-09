@@ -1,3 +1,4 @@
+---
 # Define the backend configuration at init
 - terraform:
     project_path: '../terraform/{{env}}'
