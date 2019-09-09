@@ -1,11 +1,17 @@
 ---
+- hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
 # Define the backend configuration at init
-- terraform:
-    project_path: '../terraform/{{env}}'
-    state: "{{ state }}"
-    force_init: true
+  tasks:
+    - name: Capturing Terraform Command
+      - terraform:
+          project_path: '../terraform/{{env}}'
+          state: "{{ state }}"
+          force_init: true
 
-    backend_config:
-      region: "eu-west-1"
-      bucket: "{{env}}-tfstate"
-      key: "{{env}}-state.tfstate"
+          backend_config:
+            region: "eu-west-1"
+            bucket: "{{env}}-tfstate"
+            key: "{{env}}-state.tfstate"
