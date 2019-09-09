@@ -1,18 +1,10 @@
----
+# Define the backend configuration at init
+- terraform:
+    project_path: '../terraform/{{env}}'
+    state: "{{ state }}"
+    force_init: true
 
-- name: Network Getting Started First Playbook
-  connection: network_cli
-  gather_facts: false
-  hosts: all
-  tasks:
-
-    - name: Get config for VyOS devices
-      - terraform:
-        project_path: '../terraform/{{env}}'
-        state: "{{ state }}"
-        force_init: true
-
-        backend_config:
-          region: "eu-west-1"
-          bucket: "{{env}}-tfstate"
-          key: "{{env}}-state.tfstate"
+    backend_config:
+      region: "eu-west-1"
+      bucket: "{{env}}-tfstate"
+      key: "{{env}}-state.tfstate"
