@@ -10,7 +10,7 @@ node {
     }
     if (params.plan_only) {
         stage('Terraform Plan') {
-            ansiblePlaybook extras: '-e "env=${env} --check', installation: 'ansible', playbook: 'ansible/terraform-module.yml'
+            ansiblePlaybook extras: '-e "env=\'${env}\' --check', installation: 'ansible', playbook: 'ansible/terraform-module.yml'
         }
     }else{
         stage("Terraform apply"){

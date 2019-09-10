@@ -10,7 +10,7 @@
         project_path: '../terraform/modules'
         force_init: true
         variables:
-          env: "{{env}}"
+          environment: "{{env}}"
 
         backend_config:
           region: "eu-west-1"
