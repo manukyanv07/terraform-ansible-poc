@@ -7,7 +7,7 @@
   tasks:
     - name: Capturing Terraform Command
       terraform:
-        project_path: '../terraform/{{env}}'
+        project_path: '../terraform/modules'
         force_init: true
         variables:
           env: "{{env}}"
