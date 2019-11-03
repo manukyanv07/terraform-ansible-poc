@@ -20,7 +20,7 @@
       register: terraform_plan
       when: not destroy|bool
     - debug:
-        msg="{{ terraform_plan.stdout }}"
+        var=terraform_plan
     - name: Destroy Terraform infra
       terraform:
         project_path: '../terraform/modules'
