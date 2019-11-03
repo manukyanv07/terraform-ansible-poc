@@ -19,7 +19,7 @@
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform_plan
-      when: destroy
+      when: destroy == "false"
     - debug:
         var=terraform_plan
     - name: Destroy Terraform infra
@@ -36,6 +36,6 @@
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform_destroy
-      when: destroy|bool
+      when: destroy == "true"
     - debug:
-        var: not destroy
+        var: destroy
