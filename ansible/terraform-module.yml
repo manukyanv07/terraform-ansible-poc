@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: localhost
   connection: local
   become: false
   gather_facts: false
@@ -17,6 +17,7 @@
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform
+      check_mode: yes
       when: not destroy|bool
     - debug:
         var: terraform
