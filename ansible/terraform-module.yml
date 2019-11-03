@@ -9,8 +9,7 @@
       terraform:
         project_path: '../terraform/modules'
         force_init: true
-        state: 'planned'
-        plan_file: "./myplan.tfplan"
+        state: 'absent'
         variables:
           environment: "{{env}}"
 
