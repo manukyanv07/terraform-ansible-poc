@@ -16,7 +16,10 @@
           region: "eu-west-1"
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
+      register: terraform
       when: not destroy
+    - debug:
+        var: terraform
     - name: Destroy Terraform infra
       terraform:
         project_path: '../terraform/modules'
@@ -30,4 +33,7 @@
           region: "eu-west-1"
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
+      register: destroy
       when: destroy
+    - debug:
+        var: destroy
