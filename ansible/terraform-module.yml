@@ -10,7 +10,7 @@
         project_path: '../terraform/modules'
         force_init: true
         state: 'planned'
-        plan_file: "{{ project_dir }}/myplan.tfplan"
+        plan_file: "./myplan.tfplan"
         variables:
           environment: "{{env}}"
 
