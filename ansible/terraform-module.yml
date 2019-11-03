@@ -38,4 +38,4 @@
     - debug:
         var: not destroy
   vars:
-    destroy: {{ destroy }}
+    destroy: "{{destroy}}"
