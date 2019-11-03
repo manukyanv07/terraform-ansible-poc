@@ -5,6 +5,8 @@
   gather_facts: false
   # Define the backend configuration at init
   tasks:
+    - debug:
+        var=destroy
     - name: Capturing Terraform Command
       terraform:
         project_path: '../terraform/modules'
