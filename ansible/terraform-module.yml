@@ -38,4 +38,4 @@
       register: terraform_destroy
       when: destroy == "true"
     - debug:
-        var: destroy
+        var: terraform_destroy
