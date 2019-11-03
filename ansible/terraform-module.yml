@@ -17,7 +17,6 @@
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform
-      check_mode: yes
       when: not destroy|bool
     - debug:
         var: terraform
