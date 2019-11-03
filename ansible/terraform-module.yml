@@ -30,4 +30,4 @@
           region: "eu-west-1"
           bucket: "{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
-        when: destroy
+      when: destroy
