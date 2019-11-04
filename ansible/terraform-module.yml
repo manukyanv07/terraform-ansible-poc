@@ -10,7 +10,7 @@
         project_path: '../terraform'
         force_init: true
         state: 'planned'
-        plan_file: '/ansible/playbooks/myplan.tfstate'
+        plan_file: './myplan.tfstate'
         variables:
           environment: "{{env}}"
         backend_config:
