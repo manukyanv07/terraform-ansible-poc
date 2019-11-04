@@ -7,7 +7,7 @@
   tasks:
     - name: Terraform Plan
       terraform:
-        project_path: '../terraform/modules'
+        project_path: '../terraform'
         force_init: true
         state: 'planned'
         plan_file: '/ansible/playbooks/myplan.tfstate'
