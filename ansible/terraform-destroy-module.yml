@@ -16,7 +16,7 @@
 
         backend_config:
           region: "eu-west-1"
-          bucket: "{{env}}-tfstate"
+          bucket: "manuscript-tf-ansible-{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform_destroy
     - debug:
