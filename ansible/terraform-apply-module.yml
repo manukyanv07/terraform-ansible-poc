@@ -9,10 +9,11 @@
       terraform:
         project_path: '../terraform'
         force_init: true
+        state_file: "./myplan.tfstate"
         variables:
           environment: "{{env}}"
         backend_config:
-          region: "eu-west-1"
+          region: "{{aws_region}}"
           bucket: "manuscript-tf-ansible-{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform_apply
