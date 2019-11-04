@@ -13,7 +13,7 @@
         variables:
           environment: "{{env}}"
         backend_config:
-          region: "{{aws_region}}"
+          region: "eu-west-1"
           bucket: "manuscript-tf-ansible-{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform_apply
