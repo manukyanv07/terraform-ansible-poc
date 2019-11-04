@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+  # Define the backend configuration at init
+  tasks:
+    - name: Terraform Plan
+      terraform:
+        project_path: '../terraform'
+        force_init: true
+        state: 'planned'
+        plan_file: './myplan.tfstate'
+        variables:
+          environment: "{{env}}"
+        backend_config:
+          region: "eu-west-1"
+          bucket: "manuscript-tf-ansible-{{env}}-tfstate"
+          key: "{{env}}-state.tfstate"
+      register: terraform_plan
+    - debug:
+        var=terraform_plan

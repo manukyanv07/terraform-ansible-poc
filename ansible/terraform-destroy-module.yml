@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+  # Define the backend configuration at init
+  tasks:
+    - name: Destroy Terraform infra
+      terraform:
+        project_path: '../terraform'
+        purge_workspace: 'yes'
+        state: 'absent'
+        force_init: true
+        variables:
+          environment: "{{env}}"
+
+        backend_config:
+          region: "eu-west-1"
+          bucket: "{{env}}-tfstate"
+          key: "{{env}}-state.tfstate"
+      register: terraform_destroy
+    - debug:
+        var: terraform_destroy
