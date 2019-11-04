@@ -23,7 +23,7 @@
         var=terraform_plan
     - name: Terraform Apply
       terraform:
-        project_path: '../terraform/modules'
+        project_path: '../terraform'
         force_init: true
         variables:
           environment: "{{env}}"
@@ -37,7 +37,7 @@
         var=terraform_apply
     - name: Destroy Terraform infra
       terraform:
-        project_path: '../terraform/modules'
+        project_path: '../terraform'
         purge_workspace: 'yes'
         state: 'absent'
         force_init: true
