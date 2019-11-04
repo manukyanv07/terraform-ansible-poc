@@ -18,7 +18,7 @@
           bucket: "manuscript-tf-ansible-{{env}}-tfstate"
           key: "{{env}}-state.tfstate"
       register: terraform_plan
-      when: not  destroy|bool
+      when: not destroy|bool and plan_only|bool
     - debug:
         var=terraform_plan
     - name: Terraform Apply
